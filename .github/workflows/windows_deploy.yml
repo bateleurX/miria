@@ -41,7 +41,7 @@ jobs:
           cp C:\Windows\System32\vcruntime140_1.dll build\windows\x64\runner\Release\
 
       - name: Compile .ISS to .EXE Installer
-        uses: Minionguyjpro/Inno-Setup-Action@v1.1.0
+        uses: Minionguyjpro/Inno-Setup-Action@v1.2.3
         with:
           path: windows/innosetup.iss
           options: /dMyAppVersion="${{ env.version }}"
