@@ -315,7 +315,7 @@ abstract class _$AppRouter extends RootStackRouter {
         routeData: routeData,
         child: SearchPage(
           key: args.key,
-          initialSearchText: args.initialSearchText,
+          initialNoteSearchCondition: args.initialNoteSearchCondition,
           account: args.account,
         ),
       );
@@ -340,6 +340,16 @@ abstract class _$AppRouter extends RootStackRouter {
           key: args.key,
           account: args.account,
           page: args.page,
+        ),
+      );
+    },
+    MisskeyGamesRoute.name: (routeData) {
+      final args = routeData.argsAs<MisskeyGamesRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: MisskeyGamesPage(
+          key: args.key,
+          account: args.account,
         ),
       );
     },
@@ -419,6 +429,12 @@ abstract class _$AppRouter extends RootStackRouter {
           key: args.key,
           initialTabSetting: args.initialTabSetting,
         ),
+      );
+    },
+    ShareExtensionRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const ShareExtensionPage(),
       );
     },
     FavoritedNoteRoute.name: (routeData) {
@@ -1566,14 +1582,14 @@ class NoteDetailRouteArgs {
 class SearchRoute extends PageRouteInfo<SearchRouteArgs> {
   SearchRoute({
     Key? key,
-    String? initialSearchText,
+    NoteSearchCondition? initialNoteSearchCondition,
     required Account account,
     List<PageRouteInfo>? children,
   }) : super(
           SearchRoute.name,
           args: SearchRouteArgs(
             key: key,
-            initialSearchText: initialSearchText,
+            initialNoteSearchCondition: initialNoteSearchCondition,
             account: account,
           ),
           initialChildren: children,
@@ -1587,19 +1603,19 @@ class SearchRoute extends PageRouteInfo<SearchRouteArgs> {
 class SearchRouteArgs {
   const SearchRouteArgs({
     this.key,
-    this.initialSearchText,
+    this.initialNoteSearchCondition,
     required this.account,
   });
 
   final Key? key;
 
-  final String? initialSearchText;
+  final NoteSearchCondition? initialNoteSearchCondition;
 
   final Account account;
 
   @override
   String toString() {
-    return 'SearchRouteArgs{key: $key, initialSearchText: $initialSearchText, account: $account}';
+    return 'SearchRouteArgs{key: $key, initialNoteSearchCondition: $initialNoteSearchCondition, account: $account}';
   }
 }
 
@@ -1687,6 +1703,44 @@ class MisskeyRouteRouteArgs {
   @override
   String toString() {
     return 'MisskeyRouteRouteArgs{key: $key, account: $account, page: $page}';
+  }
+}
+
+/// generated route for
+/// [MisskeyGamesPage]
+class MisskeyGamesRoute extends PageRouteInfo<MisskeyGamesRouteArgs> {
+  MisskeyGamesRoute({
+    Key? key,
+    required Account account,
+    List<PageRouteInfo>? children,
+  }) : super(
+          MisskeyGamesRoute.name,
+          args: MisskeyGamesRouteArgs(
+            key: key,
+            account: account,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'MisskeyGamesRoute';
+
+  static const PageInfo<MisskeyGamesRouteArgs> page =
+      PageInfo<MisskeyGamesRouteArgs>(name);
+}
+
+class MisskeyGamesRouteArgs {
+  const MisskeyGamesRouteArgs({
+    this.key,
+    required this.account,
+  });
+
+  final Key? key;
+
+  final Account account;
+
+  @override
+  String toString() {
+    return 'MisskeyGamesRouteArgs{key: $key, account: $account}';
   }
 }
 
@@ -1929,6 +1983,20 @@ class TimeLineRouteArgs {
   String toString() {
     return 'TimeLineRouteArgs{key: $key, initialTabSetting: $initialTabSetting}';
   }
+}
+
+/// generated route for
+/// [ShareExtensionPage]
+class ShareExtensionRoute extends PageRouteInfo<void> {
+  const ShareExtensionRoute({List<PageRouteInfo>? children})
+      : super(
+          ShareExtensionRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ShareExtensionRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for

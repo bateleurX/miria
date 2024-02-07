@@ -4,6 +4,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart' hide Page;
 import 'package:miria/model/account.dart';
 import 'package:miria/model/image_file.dart';
+import 'package:miria/model/note_search_condition.dart';
 import 'package:miria/model/tab_setting.dart';
 import 'package:miria/view/announcements_page/announcements_page.dart';
 import 'package:miria/view/antenna_page/antenna_page.dart';
@@ -14,6 +15,7 @@ import 'package:miria/view/explore_page/explore_page.dart';
 import 'package:miria/view/explore_page/explore_role_users_page.dart';
 import 'package:miria/view/favorited_note_page/favorited_note_page.dart';
 import 'package:miria/view/federation_page/federation_page.dart';
+import 'package:miria/view/games_page/misskey_games_page.dart';
 import 'package:miria/view/hashtag_page/hashtag_page.dart';
 import 'package:miria/view/misskey_page_page/misskey_page_page.dart';
 import 'package:miria/view/note_create_page/note_create_page.dart';
@@ -33,6 +35,7 @@ import 'package:miria/view/several_account_settings_page/instance_mute_page/inst
 import 'package:miria/view/several_account_settings_page/reaction_deck_page/reaction_deck_page.dart';
 import 'package:miria/view/several_account_settings_page/several_account_general_settings_page/several_account_general_settings_page.dart';
 import 'package:miria/view/several_account_settings_page/several_account_settings_page.dart';
+import 'package:miria/view/share_extension_page/share_extension_page.dart';
 import 'package:miria/view/sharing_account_select_page/account_select_page.dart';
 import 'package:miria/view/time_line_page/time_line_page.dart';
 import 'package:miria/view/user_page/user_followee.dart';
@@ -97,7 +100,10 @@ class AppRouter extends _$AppRouter {
     AutoRoute(page: CacheManagementRoute.page),
     AutoRoute(page: SeveralAccountGeneralSettingsRoute.page),
     AutoRoute(page: SharingAccountSelectRoute.page),
+    AutoRoute(page: MisskeyGamesRoute.page),
     // きしょ……
     AutoRoute(page: MisskeyRouteRoute.page),
+
+    AutoRoute(path: "/share-extension", page: ShareExtensionRoute.page)
   ];
 }
