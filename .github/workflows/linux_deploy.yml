@@ -15,7 +15,7 @@ permissions:
 jobs:
   build-snap:
     name: ビルド（Snap）
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     strategy:
       matrix:
         platform: [amd64, arm64]
@@ -59,7 +59,7 @@ jobs:
 
   build-debs:
     name: ビルド（Deb）
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     strategy:
       matrix:
         platform: [amd64]
