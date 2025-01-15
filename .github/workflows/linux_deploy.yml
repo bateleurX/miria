@@ -123,7 +123,7 @@ jobs:
             cp ./assets/images/icon.png .debpkg/usr/share/pixmaps/miria.png
 
         - name: Build DEB
-          uses: jiro4989/build-deb-action@v3
+          uses: jiro4989/build-deb-action@v4
           with:
             desc: '${{ env.DESC }}'
             package: ${{ env.APP_NAME }}
